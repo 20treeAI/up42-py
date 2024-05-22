@@ -1,0 +1,13 @@
+name: CI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  sdk_ci:
+    uses: 20treeAI/github-workflows/.github/workflows/python_library_ci.yml@main
+    with:
+      repo_uri: 'https://europe-west4-python.pkg.dev/tree-266510/library'
+    secrets:
+      REGISTRY_RW_SERVICEACCOUNT_KEY: ${{ secrets.GAR_RW_PYTHON_SERVICEACCOUNT_KEY }}
